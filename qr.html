@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIMATS Transport</title>
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="" rel="stylesheet" type="text/css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="qr.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .validity {
+      font-size: 14px;
+      text-transform: capitalize;
+      padding: 3px;
+    }
+
+    .custom-menu-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      z-index: 1051;
+      padding: 0;
+    }
+
+    .menu-img {
+      width: 37px;
+      height: 39px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .bottom-footer ul {
+      display: flex;
+      justify-content: space-around;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .bottom-footer img {
+      height: 30px;
+    }
+
+    .offcanvas-body img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .nav-link {
+      font-size: 16px;
+      padding: 10px 15px;
+      color: #333;
+    }
+
+    .dropdown-menu {
+      margin-left: 40px;
+    }
+
+    .nav-link:hover,
+    .dropdown-item:hover {
+      color: #0056b3;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body class="viewpass-bg">
+
+  <!-- Menu Button -->
+  <button class="custom-menu-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-label="Menu">
+    <img src="menu-icon.png" alt="Menu" class="menu-img">
+  </button>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="viewPass.php">
+          <div class="logo d-flex align-items-center gap-2">
+            <img src="logo.png" alt="SIMATS Logo" style="height: 40px;">
+            <h1 id="simats" style="font-size: 20px; margin: 0;">SIMATS TRANSPORTS</h1>
+          </div>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sidebar Offcanvas -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-3">
+      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start w-100">
+
+        <!-- Pass Details Dropdown -->
+        <li class="nav-item dropdown w-100">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="passDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="pass.jpeg" alt="Pass Details" class="me-2"> Pass Details</a>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="passDropdown">
+            <li><a class="dropdown-item" href="payment.php">Payment Status</a></li>
+          </ul>
+        </li>
+
+        <!-- Raise Issue -->
+        <li class="nav-item w-100">
+          <a href="feedback2.php" class="nav-link d-flex align-items-center">
+            <img src="notification.png" alt="Raise Issue" class="me-2"> Raise Issue</a>
+          </a>
+        </li>
+
+        <!-- Attendance -->
+        <li class="nav-item w-100">
+          <a href="daily-attendance.php" class="nav-link d-flex align-items-center">
+            <img src="attendance-info.png" alt="Attendance" class="me-2"> Attendance</a>
+          </a>
+        </li>
+
+        <!-- Contact -->
+        <li class="nav-item w-100">
+          <a href="contactdetails.php" class="nav-link d-flex align-items-center">
+            <img src="contact-icon.png" alt="Contact" class="me-2"> Contact</a>
+          </a>
+        </li>
+
+        <!-- Logout -->
+        <li class="nav-item w-100">
+          <a href="index.php" class="nav-link d-flex align-items-center">
+            <img src="logout.png" alt="Logout" class="me-2"> Logout</a>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container mt-4">
+    <div class="view-pass">
+      <div class="pass-section">
+        <div class="pass-section-success">
+          <h2 class="pass-h2" id="current-date"></h2>
+          <div class="validity d-block"><span>VALID</span></div>
+        </div>
+
+        <div class="pass-title">
+          <img class="wh-wid" style="width:100%;" src="nithish.jpg" alt="pass">
+        </div>
+
+        <p class="h-20"><img src="qr.jpg" class="img-qr" alt="qr"></p>
+
+        <div class="mt-4 passenger-details">
+          <h3 class="caleb">NITHISH V</h3>
+          <h4 class="calebr">212222060166</h4>
+        </div>
+
+        <div class="pass-section-success">
+          <div class="pass-head">
+            <h1 class="green-pass">TONDIARPET</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>&copy; SIMATS - 2025</footer>
+
+  <div class="bottom-footer">
+    <div class="container">
+      <ul>
+        <li><a href="profile2.php"><img src="user-prof.png" alt="Profile"></a></li>
+        <li><a href="viewPass.php" class="mob-home"><img src="f5.png" alt="Home"></a></li>
+        <li><a href="notification2.php"><img src="f3.png" alt="Notifications"></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function enterFullScreen() {
+      const element = document.documentElement;
+      const requestMethod = element.requestFullscreen || element.webkitRequestFullscreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+      if (requestMethod) requestMethod.call(element);
+    }
+
+    function preventDeveloperTools() {
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.onkeydown = function (e) {
+        if (
+          e.keyCode === 123 ||
+          (e.ctrlKey && e.shiftKey && [73, 74, 67].includes(e.keyCode)) ||
+          (e.ctrlKey && e.keyCode === 85)
+        ) {
+          return false;
+        }
+      };
+    }
+
+    window.onload = function () {
+      enterFullScreen();
+      preventDeveloperTools();
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const today = new Date();
+      const options = { day: '2-digit', month: 'short', year: 'numeric' };
+      document.getElementById("current-date").innerText = today.toLocaleDateString('en-GB', options).replace(',', '');
+    });
+  </script>
+</body>
+</html>

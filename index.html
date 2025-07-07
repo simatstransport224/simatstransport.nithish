@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>SIMATS Transport</title>
+
+    <!-- ── Inline CSS (unchanged) ─────────────────────────────────── -->
+    <style>
+        .form-element-container { position: relative; }
+
+        input.input-field[type=text],
+        input.input-field[type=password] {
+            padding: 8px 12px !important;
+            display: inline-block;
+            border: 1px solid #ccc;
+        }
+
+        .buttonImage { width: 25px !important; height: 25px !important; }
+
+        /* Pre‑loader */
+        .page-loader {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background: #fff;
+            z-index: 1000;
+        }
+        .page-loader .txt {
+            color: #666;
+            text-align: center;
+            top: 30%;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+        .txt h3 {
+            color: #418bed;
+            font-size: 40px;
+            font-family: "Markazi Text", serif;
+            letter-spacing: 0;
+            margin-top: 20px;
+        }
+        .blink_me { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        @media (min-width: 1024px) {
+            .input-field { margin: 10px 0 !important; }
+        }
+    </style>
+
+    <!-- External stylesheet (if you have one) -->
+    <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="hideLoader()" style="background:#fff;">
+
+    <!-- ── Loader ─────────────────────────────────────────────────── -->
+    <div class="page-loader">
+        <div class="txt">
+            <img src="logo-all.png" class="loader-logo" alt="loader-logo" />
+            <h3>SIMATS TRANSPORT</h3>
+            Loading <span class="blink_me">...</span>
+        </div>
+    </div>
+
+    <!-- ── Header ─────────────────────────────────────────────────── -->
+    <div class="log-header">
+        <h1>SIMATS TRANSPORTS</h1>
+    </div>
+
+    <!-- ── Login Section ──────────────────────────────────────────── -->
+    <div class="login-sec">
+        <div class="login-container">
+            <div class="mb-3 mt-2">
+                <img src="logo-all.png" alt="logo" height="100" width="100">
+            </div>
+
+            <div class="login-header">Login</div>
+
+            <!--  CHANGE: onsubmit calls redirectToQR()  -->
+            <form id="loginForm" class="log-input" onsubmit="redirectToQR(event)">
+                <!-- Staff/Student ID -->
+                <div class="form-element-container">
+                    <input type="text" id="registerNumber" name="registerNumber"
+                           class="input-field" autocomplete="off" required>
+                    <label for="registerNumber">Enter Staff ID / Student ID</label>
+                </div>
+
+                <!-- Password -->
+                <div class="form-element-container">
+                    <input type="password" id="pass" name="pass"
+                           class="input-field" autocomplete="off" required>
+                    <label for="pass">Enter Password</label>
+                </div>
+
+                <br>
+
+                <!-- Login Button -->
+                <button type="submit" class="submit-button mb-3">
+                    <img class="buttonImage me-0" src="key.png" alt="Admin"> Login
+                </button>
+
+                <!-- Sign‑up link -->
+                <div class="signup-link">
+                    <p>Do not have an account? <a href="transport_signup.php">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ── Footer ─────────────────────────────────────────────────── -->
+    <div class="user-footer">
+        <p class="mb-0">&copy; SIMATS ‑ 2024</p>
+    </div>
+
+    <!-- ── Scripts ────────────────────────────────────────────────── -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+        /* Fade‑out pre‑loader after 3 s */
+        function hideLoader() {
+            setTimeout(function () {
+                $('.page-loader').fadeOut('slow');
+            }, 3000);
+        }
+
+        /* NEW: Redirect to qr.html on form submit */
+        function redirectToQR(event) {
+            event.preventDefault();          // stop normal form submission
+            window.location.href = "qr.html"; // go to qr.html
+        }
+    </script>
+</body>
+</html>
